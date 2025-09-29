@@ -13,7 +13,7 @@ public class ListaTest {
 
     @BeforeEach
     void setUp(){
-        l = new Lista (new ArrayList<>());
+        l = new Lista();
     }
 
     @Test

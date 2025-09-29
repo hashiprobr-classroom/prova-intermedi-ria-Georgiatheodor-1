@@ -41,14 +41,17 @@ public class Data extends Momento {
         return dia;
     }
 
-    public atualiza (int ano, int mes, int dia ){
-        int
+    public Integer atualiza (int ano, int mes, int dia ) {
+        int novoAno = 0;
+        int novoMes = 0;
+        int novoDia = 0;
 
+        return 0;
 
     }
 
     @Override
-    public int minutos(){
-
+    public int minutos() {
+        return 0;
     }
 }

@@ -27,12 +27,14 @@ public class DataHorario extends Momento{
         this.data = data;
     }
 
-    public atualiza (){
-
-    }
-
     @Override
-    public int minutos(){
-
+    public int minutos() {
+        return 0;
     }
+
+    // public Integer atualiza (){
+
+   // }
+
+
 }
