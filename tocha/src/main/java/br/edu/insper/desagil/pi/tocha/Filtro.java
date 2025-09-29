@@ -39,17 +39,9 @@ public class Filtro {
             kernel[2][2] = 0.111111;
 
             // calcula saída
-
+            
             for (int y = 1; y < altura - 1; y++) {
-                for (int x = 1; x < largura - 1; x++) {
-                    double s = 0;
-                    for (int dy = -1; dy < 2; dy++) {
-                        for (int dx = -1; dx < 2; dx++) {
-                            s += entrada[y + dy][x + dx] * kernel[dy + 1][dx + 1];
-                        }
-                    }
-                    saida[y - 1][x - 1] = (int) s;
-                }
+                arear(largura, entrada, y, kernel, saida);
             }
 
             return new Imagem(saida);
@@ -86,15 +78,7 @@ public class Filtro {
             // calcula saída
 
             for (int y = 1; y < altura - 1; y++) {
-                for (int x = 1; x < largura - 1; x++) {
-                    double s = 0;
-                    for (int dy = -1; dy < 2; dy++) {
-                        for (int dx = -1; dx < 2; dx++) {
-                            s += entrada[y + dy][x + dx] * kernel[dy + 1][dx + 1];
-                        }
-                    }
-                    saida[y - 1][x - 1] = (int) s;
-                }
+                arear(largura, entrada, y, kernel, saida);
             }
 
             return new Imagem(saida);
@@ -131,15 +115,7 @@ public class Filtro {
             // calcula saída
 
             for (int y = 1; y < altura - 1; y++) {
-                for (int x = 1; x < largura - 1; x++) {
-                    double s = 0;
-                    for (int dy = -1; dy < 2; dy++) {
-                        for (int dx = -1; dx < 2; dx++) {
-                            s += entrada[y + dy][x + dx] * kernel[dy + 1][dx + 1];
-                        }
-                    }
-                    saida[y - 1][x - 1] = (int) s;
-                }
+                arear(largura, entrada, y, kernel, saida);
             }
 
             return new Imagem(saida);
@@ -176,20 +152,24 @@ public class Filtro {
             // calcula saída
 
             for (int y = 1; y < altura - 1; y++) {
-                for (int x = 1; x < largura - 1; x++) {
-                    double s = 0;
-                    for (int dy = -1; dy < 2; dy++) {
-                        for (int dx = -1; dx < 2; dx++) {
-                            s += entrada[y + dy][x + dx] * kernel[dy + 1][dx + 1];
-                        }
-                    }
-                    saida[y - 1][x - 1] = (int) s;
-                }
+                arear(largura, entrada, y, kernel, saida);
             }
 
             return new Imagem(saida);
         } else {
             throw new IllegalStateException("tipo inválido");
+        }
+    }
+
+    private static void arear(int largura, int[][] entrada, int y, double[][] kernel, int[][] saida) {
+        for (int x = 1; x < largura - 1; x++) {
+            double s = 0;
+            for (int dy = -1; dy < 2; dy++) {
+                for (int dx = -1; dx < 2; dx++) {
+                    s += entrada[y + dy][x + dx] * kernel[dy + 1][dx + 1];
+                }
+            }
+            saida[y - 1][x - 1] = (int) s;
         }
     }
 }
